@@ -1,0 +1,27 @@
+@media (min-width: 576px){
+    header{
+        color: blue;
+    }
+}
+
+@media (min-width: 768px){
+    header{
+        color: red;
+    }
+}
+
+@media (min-width: 992px){
+    header{
+        color: green;
+    }
+}
+
+@media (min-width: 1200px){
+    header{
+        color: yellow;
+    }
+}
+
+div{
+    background-color: black;
+}
