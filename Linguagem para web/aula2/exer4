@@ -29,7 +29,36 @@ echo "5X4= ".$r;
 
 
 
+echo "<br> C) Inverso de 5 =",1/5," ou 1/5";
+
+
+echo "<br> D) Soma de 4 com metade de 5 = ", 5/2+4;
+
+echo "<br> E) A diferença de 5 para 4 é = ", 5-4;
+
+
+
+
+echo"Exercicio 2: Sequencia <br>";
+
+$s = 1;
+$s1 = 1;
+$s2 = $s;
+
+
+for ($i = 0; $i <= 15; $i++) {
+	 
+	 echo $s2,"--";
+	 
+	 $s = $s+$s1;
+	 $s1 = $s+$s1;
+	 
+	 
+}
+
+
 
 
 
 ?>
+}
