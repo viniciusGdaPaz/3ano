@@ -1,0 +1,50 @@
+<?php 
+
+
+echo "Atividade 2 <br>";
+
+
+
+echo "circulio 1 = ";
+ echo areaCir(2) . "<br>";
+circunferenciaCir(2). "<br>";
+
+echo "circulio 2 = ";
+echo areaCir(3) . "<br>";
+circunferenciaCir(3) . "<br>";
+
+echo "circulio 3 = ";
+echo areaCir(4) . "<br>";
+circunferenciaCir(4) . "<br>";
+
+
+
+function areaCir($raio){
+    $pi = 3.14;
+    $area = $pi*$raio*$raio;
+    return $area;
+
+
+}
+
+
+function circunferenciaCir($raio){
+
+    $pi = 3.14;
+    $circunferencia = 2*$pi*$raio;
+    return $circunferencia;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+?>
