@@ -1,0 +1,42 @@
+<?php 
+
+echo "Atividade 1";
+
+for ($i=5 ;$i <=12; $i++) { 
+    
+    fatorial($i);
+}
+
+
+
+function fatorial ($n){
+    $v = $n;
+      $r = $n;
+      $n--;
+
+    for ($i=$n; $i>0 ; $i--) { 
+    
+      $r *= $i;
+
+
+    }
+
+    echo"fatorial de ".$v."=".$r ."<br>";
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+?>
