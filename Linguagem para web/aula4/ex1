@@ -1,0 +1,65 @@
+<?php 
+//indexados
+
+//$vetor =array(5, 7, 9, 4);
+//echo $vetor[2];
+//echo"<br>";
+
+//for ($i=0; $i <count($vetor) ; $i++) { 
+//    echo $vetor[$i];
+//}
+
+
+//foreach ($vetor as $num) {
+ //   echo $num;
+//}
+
+
+$cores = ["vermelho", "amarelo", "azul", "verde", "roxo"];
+$frutas = ["maçã", "banana", "limão", "melão", "laranja"];
+$pessoas = ["Vinicius", "João Arthur", "Erik" , "Lucas", "Miriã"];
+$esportes = ["vôlei", "futebol", "natação", "golfe", "patinação"];
+
+echo "<ol>";
+  
+    echo " <h1>Cores</h1>";
+    foreach ($cores as $cor) {
+        echo " <li> $cor </li>";
+    }
+echo "</ol>";
+
+echo "<ol>";
+    echo " <h1>Frutas</h1>";
+    foreach ($frutas as $fruta) {
+         echo " <li> $fruta </li>";
+    }
+echo "</ol>";
+
+
+echo "<ol>";
+    echo " <h1>Pessoas</h1>";
+    foreach ($pessoas as $pessoa) {
+        echo " <li> $pessoa </li>";
+    }
+echo "</ol>";
+
+
+echo "<ol>";
+    echo " <h1>Esportes</h1>";
+    foreach ($esportes as $esporte) {
+        echo " <li> $esporte </li>";
+}
+
+echo "</ol>";
+
+
+
+
+
+
+
+
+
+
+
+?>
