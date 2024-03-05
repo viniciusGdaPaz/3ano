@@ -1,0 +1,33 @@
+<?php 
+
+function areaRetangulo($base, $altura){
+	$b = $base;
+	$a = $altura;
+	$ar = $b * $a;
+	return $ar;
+	
+	
+}
+
+function perimetroRetangulo($vertical , $horizontal){
+	$pr = ($vertical*2)+($horizontal*2);
+	return $pr;
+	
+}
+echo"Retangulo1 =";
+echo areaRetangulo(3, 4) ."<br>";
+echo perimetroRetangulo(3 , 4) . "<br>";
+
+
+echo"Retangulo2 =";
+echo areaRetangulo(6, 4) ."<br>";
+echo perimetroRetangulo(3 , 8) . "<br>";
+
+
+echo"Retangulo3 =";
+echo areaRetangulo(3, 5) ."<br>";
+echo perimetroRetangulo(6 , 7) . "<br>";
+
+
+
+?>
