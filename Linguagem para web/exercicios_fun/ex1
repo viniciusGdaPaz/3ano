@@ -1,0 +1,19 @@
+<?php 
+
+function fun($i){
+	$r = (5*$i)+(2*$i) + 3;
+	return $r;
+}
+
+$a=fun(0);
+$s=fun(2);
+$d=fun(4);
+$c=fun(3);
+$v=fun(1);
+
+
+echo" resultados 1=".$a." <br>2=".$s."  <br>3=".$d."  <br>4=".$c."   <br>5=".$v;
+
+
+
+?>
