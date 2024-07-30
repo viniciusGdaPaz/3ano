@@ -1,0 +1,143 @@
+<?php
+
+class Filme{
+    private $titulo;
+    private $diretor;
+    private $ano;
+    private $linkfoto;
+
+
+    public function __construct($t = "", $d="",$a=0, $lf=""){
+     
+        $this->titulo = $t;
+        $this->diretor = $d;
+        $this->ano = $a;
+        $this->linkfoto = $lf;
+
+    }
+
+
+    public function imprimirCard(){
+
+        $card = "<div style='border: solid 1px; width: 250px; margin-top: 20px; margin-right: 25px; margin-left: 25px;'>";
+        $card = $card . $this->titulo."<br>";
+        $card = $card .$this->diretor."<br>";
+        $card = $card .$this->ano."<br>";
+       $card = $card ." <img style='width: 195px; height: 300px;' src='".$this->linkfoto. "'><br>";
+        $card = $card ."</div>";
+        return $card;
+    }
+
+    
+
+    /**
+     * Get the value of titulo
+     */
+    public function getTitulo()
+    {
+        return $this->titulo;
+    }
+
+    /**
+     * Set the value of titulo
+     */
+    public function setTitulo($titulo): self
+    {
+        $this->titulo = $titulo;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of diretor
+     */
+    public function getDiretor()
+    {
+        return $this->diretor;
+    }
+
+    /**
+     * Set the value of diretor
+     */
+    public function setDiretor($diretor): self
+    {
+        $this->diretor = $diretor;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of ano
+     */
+    public function getAno()
+    {
+        return $this->ano;
+    }
+
+    /**
+     * Set the value of ano
+     */
+    public function setAno($ano): self
+    {
+        $this->ano = $ano;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of linkfoto
+     */
+    public function getLinkfoto()
+    {
+        return $this->linkfoto;
+    }
+
+    /**
+     * Set the value of linkfoto
+     */
+    public function setLinkfoto($linkfoto): self
+    {
+        $this->linkfoto = $linkfoto;
+
+        return $this;
+    }
+}
+
+
+$im = new Filme("Iron Man","Jon Favreau",2008,"https://play-lh.googleusercontent.com/zpKYqt5VNCVqQLZNZXnqWsEJ9jv-HQEJtLdjWfUqrRTTyc0FVENH04TsybYtYBblu4DP"  );
+$ca = new Filme(" Capitão América","Joe Johnston",2011,"https://upload.wikimedia.org/wikipedia/pt/e/e8/Captain_America_The_Winter_Soldier.jpg" );
+$sd = new Filme("The Shawshank Redemption", "Frank Darabont", 1994,"https://m.media-amazon.com/images/I/81dLj5FeX7L._AC_UF894,1000_QL80_.jpg");
+$in = new Filme("Inception", "Christopher Nolan", 2010, "https://movienonsense.com/wp-content/uploads/2020/03/ace9f-inception2.jpg?w=960");
+$pa = new Filme("Parasite", "Bong Joon-ho", 2019, "https://play-lh.googleusercontent.com/tK67dms5SzFEGYSekuJZkTHnEoCWyo7kERAy-CNi8FenNXWNoSIVe0XbNYraKg3m0swiQ1LKeKearPUNr3A");
+
+$filmes = array($im,$ca,$sd,$in,$pa);
+
+
+echo "<div style=' display: flex;'>";
+foreach($filmes as $f){
+
+    echo $f->imprimirCard();
+    /**fazdiv($f);*/
+}
+echo"</div>";
+
+/**function fazdiv($f){
+    echo"<div style='border: solid 1px; width: 250px; margin-top: 20px; margin-right: 25px; margin-left: 25px;'>";
+    echo  $f->getTitulo()."<br>";
+    echo $f->getDiretor()."<br>";
+    echo $f->getAno()."<br>";
+    echo " <img style='width: 195px; height: 300px;' src='".$f->getLinkfoto(). "'><br>";
+    echo "</div>";
+
+
+} */
+
+
+
+
+
+
+
+
+
+?>
