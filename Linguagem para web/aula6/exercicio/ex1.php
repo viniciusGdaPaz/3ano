@@ -1,9 +1,9 @@
 <?php
 
-$tipo = $_GET["tipo"];
+$tipo = $_POST["tipo"];
 $nome = $_POST["nome"];
-$sobrenome = $_Post["sobrenome"];
-$idade = $_Post["idade"];
+$sobrenome = $_POST["sobrenome"];
+$idade = $_POST["idade"];
 
 
 if($tipo == "A"||$tipo == "a"){
@@ -12,12 +12,12 @@ if($tipo == "A"||$tipo == "a"){
                     "sobrenome" => $sobrenome,
                     "idade"=> $idade);
     
-    echo"Nome:".$pessoa['nome'];
-    echo"  ".$pessoa['sobrenome'];
-    echo"<br> idade:".$pessoa['idade'];
+    echo"Nome:".$pessoa['nome']."  ".$pessoa['sobrenome'];
+  
+    echo" idade:".$pessoa['idade'];
 
 
-}else if( $tipo == "C"||$tipo == "c"){
+    }else if( $tipo =="C"||$tipo =="c"){
 
     Class Pessoa{
       private $nomeP;
@@ -87,10 +87,10 @@ if($tipo == "A"||$tipo == "a"){
     }
     $pessoa = new Pessoa($nome,$sobrenome,$idade);
 
-    echo"Nome completo: ". $pessoa->getNomeP() . " " . $pessoa->getSobrenomeP();
-    echo"Idade: " . $pessoa->getIdadeP();
+    echo"Nome completo: ". $pessoa->getNomeP() . "  " . $pessoa->getSobrenomeP();
+    echo"  Idade: " . $pessoa->getIdadeP();
 
-}else{
+}else {
     echo"ERRO, INFORMADO PARAMETRO DIFERENTE DE A E C";
 
       
