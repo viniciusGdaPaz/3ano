@@ -6,6 +6,27 @@ error_reporting(E_ALL);
  $tabelas = $query->fetchALL(PDO::FETCH_OBJ);
  $conteudo="";
  //var_dump($tabelas);
+    
+     if(file_exists("sistems"))
+          mkdir("sistems");
+
+     if(file_exists("sistems/model"))
+          mkdir("sistems/model");
+
+     if(file_exists("sistems/view"))
+          mkdir("sistems/view");
+
+     if(file_exists("sistems/control"))
+       mkdir("sistems/control");
+
+    if(file_exists("sistems/dao"))
+       mkdir("sistems/dao");
+  
+     
+    
+  
+  
+
  foreach($tabelas as $tabela){
     $conteudo.="class ".ucfirst($tabela->Tables_in_framework)."{\n";
     $queryAttr=$conn->query("show columns from ".$tabela->Tables_in_framework);
@@ -21,7 +42,7 @@ error_reporting(E_ALL);
 	 }\n";     
 	}
 	//echo $conteudo;
-    file_put_contents($tabela->Tables_in_framework.".php",$conteudo);
+    file_put_contents("sistema/model".$tabela->Tables_in_framework.".php",$conteudo);
     $conteudo="";
  }
   
