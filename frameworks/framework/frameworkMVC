@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Framework MVC</title>
+</head>
+<body>
+       <form action="conexao.php" method="post">
+        <label for="servidor">Servidor</label>
+        <input type="text" name="servidor"></input><br><br>
+
+        <label for="banco">Bnaco de dados</label>
+        <input type="banco" name="banco "></input><br><br>
+        
+        <label for="usuario">Usuario do banco de dados</label>
+        <input type="usuario" name="usuario"></input><br><br>
+        
+        <label for="senha">senha</label>
+        <input type="password" name="senha "></input><br><br>
+        
+        <input type="submit" value="Criar">
+       </form>
+
+
+
+       <form >
+        <label >
+            <?php
+                if(isset($_GET["msg"])){
+                    switch($_GET['msg']){
+                        case 0 :
+                            echo"Conexão com banco de dados realizada com sucesso";
+                            echo"<br> Criando estrutura de diretorios e classes";
+                            header("location:classes.php");
+                            break;
+
+                        case 1:
+                            echo"ERRO: PROBLEMAS COM A CONEXÃO COM O BANCO DE DADOS";
+                    }
+                }
+
+
+            ?>
+
+        </label>
+       </form>
+
+
+</body>
+</html>
