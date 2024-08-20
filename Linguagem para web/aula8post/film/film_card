@@ -1,0 +1,18 @@
+<?php
+    $nome = $_POST['nome'];
+    $ano = $_POST["ano"];
+    $diretor = $_POST['diretor'];
+    $foto = $_POST['foto'];
+
+    echo"<div style='border: solid 1px; width: 300px; margin-top: 20px;'>";
+      echo $nome."<br>";
+      echo $diretor."<br>";
+      echo $ano."<br>";
+      echo "<img style='width: 100%; height: auto;' src='".$foto."' /><br>";
+      echo" </div>";
+
+
+
+
+
+?>
