@@ -1,51 +1,35 @@
-<!DOCTYPE html>
+
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Framework MVC</title>
 </head>
 <body>
-       <form action="conexao.php" method="post">
-        <label for="servidor">Servidor</label>
-        <input type="text" name="servidor"></input><br><br>
+  <form action="conexao.php" method="post">
+      <input type="hidden" name="criar" value="1">
+      <label for="servidor">Servidor</label>
+      <input type="text" name="servidor"><br>
+      <label for="banco">Banco de Dados</label>
+      <input type="text" name="banco"><br>
+      <label for="usuario">Usuário do Banco de Dados</label>
+      <input type="text" name="usuario"><br>
+      <label for="senha">Senha</label>
+      <input type="password" name="senha"><br>
+      <input type="submit" value="Criar">
+  </form>
+<label>
+    <?php
+       if (isset($_GET['msg'])) {
+           switch ($_GET['msg']) {
+               case 0:
+                   echo "Arquitetura do sistema criada com sucesso!";
+                   break;
+               case 1:
+                   echo "ERRO: Problema ao conectar com o Banco de Dados!";
+                   break;
 
-        <label for="banco">Bnaco de dados</label>
-        <input type="banco" name="banco "></input><br><br>
-        
-        <label for="usuario">Usuario do banco de dados</label>
-        <input type="usuario" name="usuario"></input><br><br>
-        
-        <label for="senha">senha</label>
-        <input type="password" name="senha "></input><br><br>
-        
-        <input type="submit" value="Criar">
-       </form>
-
-
-
-       <form >
-        <label >
-            <?php
-                if(isset($_GET["msg"])){
-                    switch($_GET['msg']){
-                        case 0 :
-                            echo"Conexão com banco de dados realizada com sucesso";
-                            echo"<br> Criando estrutura de diretorios e classes";
-                            header("location:classes.php");
-                            break;
-
-                        case 1:
-                            echo"ERRO: PROBLEMAS COM A CONEXÃO COM O BANCO DE DADOS";
-                    }
-                }
-
-
-            ?>
-
-        </label>
-       </form>
-
-
+            }
+       }
+    ?>
+</label>
 </body>
 </html>
