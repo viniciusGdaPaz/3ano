@@ -1,26 +1,17 @@
 <?php
-    try{
-    /** $usuario = "root";
-    $senha = "bancodedados";  */    
-    $usuario = $_POST['usuario'];
-    $senha = $_POST['senha'];
-    $banco = $_POST['banco'];
-    $servidor = $_POST['servidor'];
-
-
-
-    $conn = new PDO("mysql:host=".$servidor.";dbname=$banco","$usuario","$senha");
-    /**echo"<br>Conexão estabelecida com sucesso";
-     echo"<br>Servidor: " . $_POST['servidor'];
-     echo"<br>Banco: ".$_POST['banco'];
-     echo"<br>Usuario: ".$_POST['usuario'];
-     echo"<br>Senha: ".$_POST['senha']; */
-     header("Location:frameworkMVC.php?msg=0");
-    }
-    catch(PDOException $e){
-    
-    /**echo "Falha na conexão com o banco de dados";
-    echo "ERRO: $e->getMessage()";
- */    header("Location:frameworkMVC.php?msg=1");
-    }
+include "criaClasses.php";
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+try{
+    $server=$_POST["servidor"];
+    $banco=$_POST["banco"];
+    $usuario=$_POST["usuario"];
+    $senha=$_POST["senha"];
+    $conn= new PDO("mysql:host=".$server.";dbname=$banco","$usuario","$senha");
+    criaClasses::criar($conn,$banco);
+    header("Location:frameworkMVC.php?msg=0");
+ }catch(PDOException $e){
+	echo "erro".$e->getMessage();
+    header("Location:frameworkMVC.php?msg=1");
+}
 ?>
