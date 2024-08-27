@@ -19,7 +19,14 @@
                 $usuario="root";
                 $senha="bancodedados";
 
-                self::$conn = new PDO($endereco, $usuario, $senha, $opcoes);
+                try{
+                    self::$conn = new PDO($endereco, $usuario, $senha, $opcoes);
+
+                }catch(PDOException $e){
+                    echo"Erro ao conectar no banco de dados ";
+                }
+
+                
             }
 
            
