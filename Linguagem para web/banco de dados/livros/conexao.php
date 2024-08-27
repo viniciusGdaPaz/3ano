@@ -24,6 +24,7 @@
 
                 }catch(PDOException $e){
                     echo"Erro ao conectar no banco de dados ";
+                    echo $e->getMessage();
                 }
 
                 
