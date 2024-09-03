@@ -10,7 +10,26 @@ include_once("conexao.php");
  
   
     $conn = Conexao::getConexao();
-    print_r($conn)
+
+   // print_r($conn);
+
+  //verifica se o usuario ja clicou no gravar
+    if(isset($_POST['titulo'])){
+         $titulo = $_POST['titulo'];
+        $genero = $_POST['genero'];
+        $qtdPaginas = $_POST['qtdPaginas'];
+
+
+       $sql = "INSERT INTO livros (titulo,genero,qtd_paginas)
+                VALUES(?,?,?)";
+  
+         $stm = $conn->prepare($sql);
+         $stm->execute([$titulo, $genero, $qtdPaginas]);
+
+
+         //redirecionar para a pagina desiquinada
+         header("Location: livro.php");
+    }
 ?>
 
 
@@ -25,7 +44,7 @@ include_once("conexao.php");
 <body>
     
      
-       <fieldset><h3>Formulário do livro</h3>
+       <fieldset style="border-radius: 10px;"><h3>Formulário do livro</h3>
 
         <form  method="post">
 
@@ -56,6 +75,39 @@ include_once("conexao.php");
 
 
      <h3>Listagem do livros</h3>
+ 
+     <?php
+         
+       $sql = "SELECT * FROM livros";
+       $stm = $conn->prepare($sql);
+       $stm->execute();
+       $livros = $stm->fetchAll();
+
+
+     ?>
+
+<table border = "5">
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Gênero</th>
+            <th>Páginas</th>
+            <th></th>
+        </tr>   
+        
+        <?php foreach($livros as $l):  ?>
+        <tr>
+            <td><?php echo $l["id"]; ?></td>
+            <td><?php echo $l["titulo"]; ?></td>
+            <td><?php echo $l["genero"]; ?></td>
+            <td><?= $l["qtd_paginas"]; ?></td>
+            <td>
+                <a href="livroDel.php?id=<?=$l['id']?>">Excluir</a>    
+            </td>
+        </tr>
+    
+        <?php endforeach; ?>
+    </table>
 
 
 </body>
