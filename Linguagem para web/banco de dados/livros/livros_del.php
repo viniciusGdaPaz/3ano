@@ -22,7 +22,7 @@
          $stm->execute([$id]);
 
          //redireciona de volta
-         header("location: livros.php");
+         header("location: livro.php");
     }else{
         echo"id do livro invalido.tente novamente";
         echo'<a href="livro.php">Voltar</a>';
