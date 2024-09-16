@@ -8,8 +8,8 @@ try{
     $usuario=$_POST["usuario"];
     $senha=$_POST["senha"];
     $conn= new PDO("mysql:host=".$server.";dbname=$banco","$usuario","$senha");
-    criaClasses::criar($conn,$banco, $usuario, $senha);
-    header("Location:frameworkMVC.php?msg=0");
+    criaClasses::criar($conn,$banco,$usuario,$senha);
+    header("Location:criarFormulario.php?bd=".$banco);
  }catch(PDOException $e){
 	echo "erro".$e->getMessage();
     header("Location:frameworkMVC.php?msg=1");
