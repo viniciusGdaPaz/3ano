@@ -1,0 +1,10 @@
+body{
+    background-color: black;
+}
+fieldset{
+    align-items: center;
+    height: auto;
+    width: auto;
+    border: 30px;
+}
+
