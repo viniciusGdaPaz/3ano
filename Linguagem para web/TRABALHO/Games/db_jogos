@@ -1,3 +1,5 @@
+CREATE DATABASE db_jogos;
+USE db_jogos;
 CREATE TABLE jogos (
     id INTEGER NOT NULL AUTO_INCREMENT,
     nome VARCHAR(50) NOT NULL,
