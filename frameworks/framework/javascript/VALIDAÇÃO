@@ -1,0 +1,21 @@
+function validarFormulario() {
+    // Obtém o formulário
+    const formulario = document.getElementById("meuFormulario");
+    const campos = formulario.querySelectorAll('input[type="text"]');
+
+    // Loop para percorrer todos os campos do formulário
+    for (let campo of campos) {
+        const valor = campo.value.trim(); // Remove os espaços em branco
+        // Verifica se o campo está vazio
+        if (valor === '') {
+            alert("O campo " + campo.name + " não pode ser vazio");
+            campo.focus();
+            return false;
+        }
+    }
+
+  
+
+    // Se tudo estiver válido, pode prosseguir
+    return true;
+}
