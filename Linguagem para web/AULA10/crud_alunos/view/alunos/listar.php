@@ -9,7 +9,7 @@
   include_once(__DIR__."/../../controller/alunoController.php"); 
   $alunoCont = new AlunoController();
   $alunos = $alunoCont->listar();
-  print_r($alunos);
+  //print_r($alunos);
 
 
 
@@ -30,6 +30,17 @@
         <th>Curso</th>
         
     </tr>
+    <!--Dados da tabela -->
+
+    <?php foreach($alunos as $a):?>
+        <tr>
+            <td><?php echo $a->getId()?></td>
+            <td><?= $a->getNome()?></td>
+            <td><?= $a->getIdade()?></td>
+            <td><?= $a->getEstrangeiroText()?></td>
+            <td><?= $a->getCurso()?></td>
+        </tr>
+    <?php endforeach;?>    
 </table>
 
 <?php
