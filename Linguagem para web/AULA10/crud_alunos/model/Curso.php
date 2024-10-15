@@ -7,7 +7,7 @@ class Curso{
 
     public function __toString()
     {
-        return $this->id;
+        return $this->nome ." - ". $this->turno;
     }
 
 
