@@ -13,7 +13,9 @@
     }
 
     public function list(){
-        $sql = "SELECT * FROM alunos";
+        $sql = "SELECT a.*, c.nome curso_nome, c.turno curso_turno 
+        FROM alunos a 
+        JOIN cursos c ON (c.id= a.id_curso)";
 
         $stm =$this->conn->prepare($sql);
         $stm->execute();
@@ -37,6 +39,8 @@
 
             $curso = new Curso();
             $curso->setId($reg['id_curso']);
+            $curso->setNome(($reg['curso_nome']));
+            $curso->setTurno($reg['curso_turno']);
             $aluno->setCurso($curso);
 
             array_push($alunos, $aluno);
