@@ -8,7 +8,7 @@ $cursos = $cursoCont->listar();
 ?>
 
 <h3>Cadastrar Aluno</h3>
-<form id="formAluno" methood="POST">
+<form id="formAluno" method="post" action="inserir.php">
 
     <div>
         <label for="txtNome">Nome</label>
@@ -16,8 +16,8 @@ $cursos = $cursoCont->listar();
     </div>
 
     <div>
-        <label for="txtIdade">Nome</label>
-        <input type="number" placeholder="Informe a idade" name="nome" id="textIdade" >
+        <label for="txtIdade">idade</label>
+        <input type="number" placeholder="Informe a idade" name="idade" id="textIdade" >
     </div>
 
     <div>
@@ -30,7 +30,7 @@ $cursos = $cursoCont->listar();
     </div>
 
     <div>
-        <label for="selCurso">Estrangeiro</label>
+        <label for="selCurso">Selecione o Curso</label>
         <select name="selCurso" id="selCurso">
             <option value="">------Selecione------ </option>
             <?php foreach($cursos as $curso):?>
