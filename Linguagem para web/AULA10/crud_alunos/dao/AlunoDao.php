@@ -12,6 +12,22 @@
         $this->conn = Connection::getConnection();
     }
 
+    public function delete($id){
+       $sql = "DELETE FROM alunos WHERE id=?";
+       $stm=$this->conn->prepare($sql);
+       $stm->execute(array($id));
+    }
+
+    public function insert(Aluno $alunos){
+        $sql = "INSERT INTO alunos(nome, idade, estrangeiro, id_curso)
+                VALUES (?,?,?,?)";
+        $stm=$this->conn->prepare($sql);
+        $stm->execute(array($alunos->getNome(),
+                            $alunos->getIdade(),
+                            $alunos->getEstrangeiro(),
+                            $alunos->getCurso()->getId()));
+    }
+
     public function list(){
         $sql = "SELECT a.*, c.nome curso_nome, c.turno curso_turno 
         FROM alunos a 
