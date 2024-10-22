@@ -6,7 +6,7 @@
   $conn = Connection::getConnection();
   print_r($conn);*/
 
-  include_once(__DIR__."/../../controller/alunoController.php"); 
+  include_once(__DIR__."/../../controller/AlunoController.php"); 
   $alunoCont = new AlunoController();
   $alunos = $alunoCont->listar();
   //print_r($alunos);
@@ -20,6 +20,8 @@
 ?>
 <h2>Listagem de Alunos</h2>
 
+<a href="inserir.php">inserir</a>
+
 <table border="1">
     <!--cabeçalho da tabela -->
     <tr>
@@ -28,6 +30,7 @@
         <th>Idade</th>
         <th>Estrangeiro</th>
         <th>Curso</th>
+        <th></th>
         
     </tr>
     <!--Dados da tabela -->
@@ -39,6 +42,12 @@
             <td><?= $a->getIdade()?></td>
             <td><?= $a->getEstrangeiroText()?></td>
             <td><?= $a->getCurso()?></td>
+            <td>
+                <a href="excluir.php?id=<?= $a->getId()?>" onclick="return confirm('Deseja excluir esssa  <?=$a->getNome()?>?')"><img src="../../img/btn_excluir.png"  >         
+                    
+                </a>
+            </td>
+        
         </tr>
     <?php endforeach;?>    
 </table>
