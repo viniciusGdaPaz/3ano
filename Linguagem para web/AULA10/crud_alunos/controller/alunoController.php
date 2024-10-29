@@ -1,6 +1,7 @@
 <?php
 
 include_once(__DIR__."/../dao/AlunoDao.php");
+include_once(__DIR__."/../service/AlunoService.php");
 
 class AlunoController{
 
@@ -12,8 +13,15 @@ class AlunoController{
     }
 
     public function inserir($aluno){
-     $alunoDao = new AlunoDao();
-     $alunoDao->insert($aluno);  
+        $alunoService = new AlunoService();
+        $erros = $alunoService->validarDados($aluno);
+        if(count($erros)>0){
+            return $erros;
+        }
+        
+        $alunoDao = new AlunoDao();
+        $alunoDao->insert($aluno);
+        return array();
     }
 
     public function deletar($id){
