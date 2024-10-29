@@ -12,20 +12,20 @@ $cursos = $cursoCont->listar();
 
     <div>
         <label for="txtNome">Nome</label>
-        <input type="text" placeholder="Informe o nome" name="nome" id="textNome" maxlength="70">
+        <input type="text" placeholder="Informe o nome" name="nome" id="textNome" maxlength="70" value="<?= $aluno != null ? $aluno->getNome() : ""?>">
     </div>
 
     <div>
         <label for="txtIdade">idade</label>
-        <input type="number" placeholder="Informe a idade" name="idade" id="textIdade" >
+        <input type="number" placeholder="Informe a idade" name="idade" id="textIdade"  value="<?= $aluno != null ? $aluno->getIdade() : ""?>">
     </div>
 
     <div>
         <label for="selEstrange">Estrangeiro</label>
         <select name="estrang" id="selEstrange">
         <option value="">------Selecione------ </option>
-        <option value="S">Sim</option>
-        <option value="N">Não</option>
+        <option value="S" <?= $aluno != null && $aluno->getEstrangeiro() == 'S' ? 'selected':''?>>Sim</option>
+        <option value="N" <?= $aluno != null && $aluno->getEstrangeiro() == 'N' ? 'selected':''?>>Não</option>
         </select>
     </div>
 
@@ -34,7 +34,11 @@ $cursos = $cursoCont->listar();
         <select name="selCurso" id="selCurso">
             <option value="">------Selecione------ </option>
             <?php foreach($cursos as $curso):?>
-                <option value="<?= $curso->getId()?>"><?= $curso?></option>
+                <option value="<?= $curso->getId()?>"
+                <?php if($aluno != null && $aluno->getCurso()!= null && $aluno->getCurso()->getId() == $curso->getId()){
+                    echo "selected";
+                    }?>>
+                    <?= $curso?></option>
             <?php endforeach?>   
         
        
@@ -45,8 +49,12 @@ $cursos = $cursoCont->listar();
         <input type="submit" value="Gravar">
     </div>
 
-
+    
 </form>
+
+<div style='color: red;'>
+    <?=$msgErro?>
+</div>
 
 <div>
     <a href="listar.php"><-----</a>
