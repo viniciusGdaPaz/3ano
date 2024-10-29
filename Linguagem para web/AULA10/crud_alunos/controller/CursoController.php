@@ -1,15 +1,21 @@
 <?php
 
-include_once(__DIR__."/../dao/AlunoDao.php");
+include_once(__DIR__."/../dao/CursoDao.php");
+class CursoController{
 
-class AlunoController{
 
-    public function listar() {
-        $alunoDao = new AlunoDao();
+    
+
+     public function listar(){
         
-        $alunos = $alunoDao->list();
-        return $alunos;
-    }
+        $cursoDao = new CursoDao();
+
+        $lista = $cursoDao->list();
+        return $lista;
+     }
+
+
 }
+
 
 ?>
