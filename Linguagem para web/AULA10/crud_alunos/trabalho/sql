@@ -1,0 +1,43 @@
+
+-- Criação do banco de dados
+CREATE DATABASE db_rpg;
+
+-- Seleção do banco de dados para uso
+USE db_rpg;
+
+-- Criação da tabela 'personagem'
+CREATE TABLE personagem (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nickname VARCHAR(50),
+    classe VARCHAR(50),
+    vida  FLOAT,
+    item VARCHAR(50),
+    attack FLOAT,
+    defense FLOAT,
+    id_classe,
+    id_item,
+    FOREIGN KEY (id_classe) REFERENCES classe(id), -- Chave estrangeira para 'classe'
+    FOREIGN KEY (id_item) REFERENCES item(id)      -- Chave estrangeira para 'item'
+    
+);
+CREATE TABLE item (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100),
+    tipo VARCHAR(50),
+    attack FLOAT,
+    defense FLOAT,
+    vida FLOAT
+);
+CREATE TABLE classe (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(50),
+    attack FLOAT,
+    defense FLOAT,
+    vida FLOAT,
+    habilidade VARCHAR(100)
+);
+
+INSERT INTO classe (nome, attack, defense, habilidade ) VALUES ("Mago", 5.0, 0.0, 0.0,"Ataques causam dano em área e longo alcance");
+INSERT INTO classe (nome, attack, defense, habilidade ) VALUES ("Guerreiro", 4.0, 2.0, 2.0, "Regenera vida ao causar dano");
+INSERT INTO classe (nome, attack, defense, habilidade ) VALUES ("Paladino", 2.0, 5.0, 3.0, "Regenera vida dos aliados ao seu redor");
+INSERT INTO classe (nome, attack, defense, habilidade ) VALUES ("Assasino", 7.0, 0.0, 0.5, "Recebe 15% dos atributos do inimigo abatido");
