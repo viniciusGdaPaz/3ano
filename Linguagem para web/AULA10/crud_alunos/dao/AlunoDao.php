@@ -64,5 +64,42 @@
 
         return $alunos;
     }
+
+    public function findById(int $id) {
+
+        $sql = "SELECT a.*, c.nome curso_nome, c.turno curso_turno
+                FROM alunos a
+                JOIN cursos c ON (c.id = a.id_curso)
+                WHERE a.id = ?";
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([$id]);
+        $result = $stmt->fetchAll();
+
+        //Criar o objeto Aluno
+        $alunos = $this->mapAlunos($result);
+
+        if(count($alunos) == 1)
+            return $alunos[0];
+        elseif(count($alunos) == 0)
+            return null;
+
+        die("AlunoDAO.findById - Erro: mais de um aluno".
+                " encontrado para o ID " . $id);
+    }   
+
+
+    public function update(Aluno $aluno) {
+       
+
+        $sql = "UPDATE alunos SET nome = ?, idade = ?,". 
+            " estrangeiro = ?, id_curso = ?".
+            " WHERE id = ?";
+        $stmt = $this->conn->prepare($sql);
+        
+        $stmt->execute([$aluno->getNome(), $aluno->getIdade(), 
+                        $aluno->getEstrangeiro(), $aluno->getCurso()->getId(),
+                        $aluno->getId()]);
+    }
  }
 ?>
