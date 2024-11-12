@@ -31,6 +31,7 @@
         <th>Estrangeiro</th>
         <th>Curso</th>
         <th></th>
+        <th></th>
         
     </tr>
     <!--Dados da tabela -->
@@ -43,9 +44,14 @@
             <td><?= $a->getEstrangeiroText()?></td>
             <td><?= $a->getCurso()?></td>
             <td>
-                <a href="excluir.php?id=<?= $a->getId()?>" onclick="return confirm('Deseja excluir esssa  <?=$a->getNome()?>?')"><img src="../../img/btn_excluir.png"  >         
+                <a href="alterar.php?id=<?= $a->getId()?>"  ><img src="../../img/btn_editar.png"  >         
                     
                 </a>
+            </td>
+            <td>
+            <a href="excluir.php?id=<?= $a->getId()?>" onclick="return confirm('Deseja excluir esssa  <?=$a->getNome()?>?')"><img src="../../img/btn_excluir.png"  >         
+                    
+                    </a>
             </td>
         
         </tr>
