@@ -28,6 +28,26 @@ class AlunoController{
        $alunoDao = new AlunoDao();
        $alunoDao->delete($id);
     }
+
+    public function buscarID($id){
+        $alunoDao = new AlunoDao();
+
+        $aluno = $alunoDao->findById($id);
+        return $aluno;
+    }
+
+
+    public function alterar($aluno){
+        $alunoService = new AlunoService();
+        $erros = $alunoService->validarDados($aluno);
+        if(count($erros)>0){
+            return $erros;
+        }
+        
+        $alunoDao = new AlunoDao();
+        $alunoDao->update($aluno);
+        return array();
+    }
 }
 
 ?>
