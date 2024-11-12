@@ -8,7 +8,7 @@ $cursos = $cursoCont->listar();
 ?>
 
 <h3>Cadastrar Aluno</h3>
-<form id="formAluno" method="post" action="inserir.php">
+<form id="formAluno" method="post" >
 
     <div>
         <label for="txtNome">Nome</label>
@@ -44,6 +44,8 @@ $cursos = $cursoCont->listar();
        
         </select>
     </div>
+
+    <input type="hidden" name="id" value = "<?= $aluno != null ? $aluno->getId() : ""?>">
 
     <div>
         <input type="submit" value="Gravar">
