@@ -23,7 +23,7 @@
         </select>
 
         <label for="cidade">Cidades</label>
-        <select name="cidades">
+        <select name="cidades" id="cidades">
             
         </select>
     </form>
