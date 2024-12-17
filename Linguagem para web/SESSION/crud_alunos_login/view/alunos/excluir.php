@@ -1,4 +1,6 @@
 <?php
+//inclusão da verificação
+include_once(__DIR__."/../login/loginVerifica.php");
 #Página para excluir um aluno
 
 require_once(__DIR__ . "/../../controller/AlunoController.php");
