@@ -1,12 +1,14 @@
 <?php
-
+//inclusão da verificação
+include_once(__DIR__."/../login/loginVerifica.php");
 //Buscar os cursos para exibir no select
+
 include_once(__DIR__ . "/../../controller/CursoController.php");
 $cursoCont = new CursoController();
 $cursos = $cursoCont->listar();
 //print_r($cursos);
 
-
+include_once(__DIR__ . "/../include/menu.php");
 include_once(__DIR__ . "/../include/header.php");
 ?>
 
