@@ -21,8 +21,36 @@ class UsuarioService {
 
     public function salvarSessao(Usuario  $usuario){
         session_start();
-        $_SESSIO["SESSAO_USUARIO_ID"]= $usuario->getId();
-        $_SESSIO["SESSAO_USUARIO_NOME"]= $usuario->getNome();
+        $_SESSION["SESSAO_USUARIO_ID"]= $usuario->getId();
+        $_SESSION["SESSAO_USUARIO_NOME"]= $usuario->getNome();
     }
 
+    public function removerSessao(){
+        session_start();
+        session_unset();
+        session_destroy();
+    }
+
+    public function usuarioExisteSessao(){
+        if(session_status() != PHP_SESSION_ACTIVE){
+            session_start();
+        }
+        
+        if(isset($_SESSION["SESSAO_USUARIO_ID"])){
+            return true;
+        }
+        return false;
+
+    }
+
+    public function getNomeUsuarioLogado(){
+        if($this->usuarioExisteSessao()){
+            return $_SESSION["SESSAO_USUARIO_NOME"];
+
+        }
+
+        return "";
+      
+        
+    }
 }
