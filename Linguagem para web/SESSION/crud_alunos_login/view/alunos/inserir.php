@@ -1,5 +1,6 @@
 <?php
-
+//inclusão da verificação
+include_once(__DIR__."/../login/loginVerifica.php");
 include_once(__DIR__ . "/../../model/Aluno.php");
 include_once(__DIR__ . "/../../model/Curso.php");
 include_once(__DIR__ . "/../../controller/AlunoController.php");
