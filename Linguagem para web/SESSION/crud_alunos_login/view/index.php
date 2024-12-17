@@ -1,7 +1,13 @@
 <?php
-
+//inclusão da verificação
+include_once(__DIR__."/view/login/loginVerifica.php");
 //Inclusão do HTML do header
 include_once(__DIR__ . "/view/include/header.php");
+
+//Inclusão do menu
+include_once(__DIR__ . "/view/include/menu.php");
+
+
 ?>
 
 <div class="row mt-3 justify-content-center">
