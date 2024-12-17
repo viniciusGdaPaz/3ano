@@ -5,7 +5,8 @@ include_once(__DIR__ . "/../../util/Connection.php");
 $conn = Connection::getConnection();
 print_r($conn);
 */
-
+//inclusão da verificação
+include_once(__DIR__."/../login/loginVerifica.php");
 //Carregando a lista de alunos
 include_once(__DIR__ . "/../../controller/AlunoController.php");
 
@@ -14,6 +15,7 @@ $alunos = $alunoCont->listar();
 //print_r($alunos);
 
 //Inclusão do HTML do header
+include_once(__DIR__ . "/../include/menu.php");
 include_once(__DIR__ . "/../include/header.php");
 ?>
 
