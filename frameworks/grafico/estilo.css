@@ -1,0 +1,25 @@
+body{
+    font-family:Arial, sans-serif;
+    margin: 20px;
+}
+
+.grafico{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 800px;
+    height: 400px;
+    margin: 0 auto;
+    border: 1px solid;
+    padding: 10px;
+}
+
+.bar{
+   
+    margin: 0 5px;
+    text-align: center;
+    position: relative;
+    background-color: blue;
+    color: wheat;
+}
